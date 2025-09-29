@@ -9,41 +9,48 @@
       font-family: "Noto Sans TC", sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9fbfd;
+      background: #AAC48C; /* 綠色背景 */
       color: #333;
       line-height: 1.6;
     }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
     header {
-      background: #e6f0fa;
-      color: #2c3e50;
-      padding: 2rem 1rem;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
     }
-    header h1 {
-      margin: 0.5rem 0 0;
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .header-text {
+      flex: 1;
+      text-align: left;
+    }
+    .header-text h1 {
+      margin: 0;
       font-size: 2rem;
+      color: #2c3e50;
     }
-    header h2 {
+    .header-text h2 {
       margin: 0.3rem 0;
       font-size: 1.2rem;
       font-weight: normal;
       color: #555;
     }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
     section {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 1.5rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
     }
     h2 {
       border-left: 5px solid #6ca9e0;
@@ -55,12 +62,36 @@
     ul {
       padding-left: 1.2rem;
     }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1rem;
+    }
+    .timeline-item .year {
+      font-weight: bold;
+      color: #2c3e50;
+    }
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
     @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-text {
+        text-align: center;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
       .two-col {
         grid-template-columns: 1fr;
       }
@@ -68,70 +99,84 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="profile.jpg" alt="大頭照">
-    <h1>何昱潔</h1>
-    <h2>HO, YU CHIEH</h2>
-    <p>📞 09-66051215 | ✉️ ashleyho1215@gmail.com</p>
-  </header>
+  <div class="container">
+    <header>
+      <img src="profile.jpg" alt="大頭照">
+      <div class="header-text">
+        <h1>何昱潔</h1>
+        <h2>HO, YU CHIEH</h2>
+        <p>📞 09-66051215<br>✉️ ashleyho1215@gmail.com</p>
+      </div>
+    </header>
 
-  <section>
-    <h2>學歷</h2>
-    <ul>
-      <li>新北市立溪崑國民中學</li>
-      <li>新北市立板橋高級中學</li>
-      <li>中原大學 智慧運算與大數據</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>語言能力檢定</h2>
-    <ul>
-      <li>多益 725 分</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>經歷</h2>
-    <ul>
-      <li><strong>2020-2021：</strong> 國中擔任校內司儀（朝會與比賽活動主持）</li>
-      <li><strong>2023-2024：</strong> 高二擔任鋼琴音樂社活動幹部（課程規劃、寒暑假活動、成果發表）</li>
-      <li><strong>高二-高三：</strong> 班級衛生股長（統整並分配人力）</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>個人專長 / 技能</h2>
-    <div class="two-col">
+    <section>
+      <h2>學歷</h2>
       <ul>
-        <li>善於團隊合作</li>
-        <li>懂得與人溝通並妥善表達</li>
-        <li>基礎的數據分析能力</li>
+        <li>市立溪崑國中</li>
+        <li>市立板橋高中</li>
+        <li>中原大學 智慧運算與大數據 一年甲班</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>語言能力檢定</h2>
       <ul>
-        <li>良好的語文理解與表達</li>
-        <li>基礎的程式設計知識</li>
-        <li>願意主動學習</li>
+        <li>多益考取 725 分</li>
+        <li>學測英文聽力 A 級</li>
       </ul>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>性格特質</h2>
-    <ul>
-      <li>懂得變通創新</li>
-      <li>樂於接觸未知新領域</li>
-      <li>能長時間專注於特定事務</li>
-    </ul>
-  </section>
+    <section>
+      <h2>經歷</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">2020-2021</div>
+          <div>國中擔任校內司儀（朝會與比賽活動主持）</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2023-2024</div>
+          <div>高二擔任鋼琴音樂社活動幹部（課程規劃、寒暑假活動、成果發表）</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">高二-高三</div>
+          <div>班級衛生股長（統整並分配人力）</div>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>未來展望</h2>
-    <ul>
-      <li>深入理解量子領域</li>
-      <li>學習處理大數據</li>
-      <li>加強軟硬體實作能力</li>
-    </ul>
-  </section>
+    <section>
+      <h2>個人專長 / 技能</h2>
+      <div class="two-col">
+        <ul>
+          <li>善於團隊合作</li>
+          <li>懂得與人溝通並妥善表達</li>
+          <li>基礎的數據分析能力</li>
+        </ul>
+        <ul>
+          <li>良好的語文理解與表達</li>
+          <li>基礎的程式設計知識</li>
+          <li>願意主動學習</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>性格特質</h2>
+      <ul>
+        <li>懂得變通創新</li>
+        <li>樂於接觸未知新領域</li>
+        <li>能長時間專注於特定事務</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>未來展望</h2>
+      <ul>
+        <li>深入理解量子領域</li>
+        <li>學習處理大數據</li>
+        <li>加強軟硬體實作能力</li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
